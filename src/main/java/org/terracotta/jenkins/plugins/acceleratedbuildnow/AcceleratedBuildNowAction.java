@@ -174,9 +174,7 @@ public class AcceleratedBuildNowAction implements Action {
   private boolean queueSorterPriorityOn(AbstractProject project) {
     QueueSorter originalQueueSorter = Jenkins.getInstance().getQueue().getSorter();
     if (originalQueueSorter instanceof AcceleratedBuildNowSorter) {
-      if (((AcceleratedBuildNowSorter) originalQueueSorter).getProject().equals(project)) {
-        return true;
-      }
+		return ((AcceleratedBuildNowSorter) originalQueueSorter).getProject().equals(project)      
     }
     return false;
   }
